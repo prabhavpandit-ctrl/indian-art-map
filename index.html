@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Indian Art Across the Map — an interactive geographical journey through India's artistic traditions, movements, artists and cultural heritage." />
+<title>Indian Art Across the Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="grain"></div>
+<header class="nav">
+  <a class="brand" href="#top"><span class="lotus">♢</span><span>INDIAN ART MAP</span></a>
+  <nav>
+    <a href="#top">Home</a><a href="#explore">Explore</a><a href="#featured">Art Regions</a><a href="#about">About</a>
+    <a href="https://prabhavpandit-ctrl.github.io/indian-art-timeline/" target="_blank" rel="noreferrer">Timeline ↗</a>
+  </nav>
+  <div class="search-wrap"><span>⌕</span><input id="search" placeholder="Search locations, artists, art forms..." /></div>
+  <div class="tagline">Many Lands<br><i>One Artistic Soul</i></div>
+</header>
+
+<main id="top">
+<section class="hero" id="explore">
+  <aside class="controls">
+    <div class="eyebrow">A GEOGRAPHICAL JOURNEY</div>
+    <h1>Indian Art<br><em>Across the Map</em></h1>
+    <p class="intro">Explore the traditions, movements, artists and cultural heritage that shaped the visual history of India.</p>
+    <div class="rule"></div>
+    <blockquote>“Different lands. Infinite expressions. One India.”</blockquote>
+
+    <div class="filter-group"><h3>Filter by Period</h3><div class="chips" id="periods"></div></div>
+    <div class="filter-group"><h3>Filter by Art Form</h3><div class="chips" id="forms"></div></div>
+    <div class="filter-group"><h3>Filter by Region</h3><div class="chips" id="regions"></div></div>
+    <button class="reset" id="reset">↻ &nbsp; Reset Filters</button>
+  </aside>
+
+  <section class="map-stage">
+    <div class="map-tools"><span id="count">18 locations</span><button id="zoomIn">+</button><button id="zoomOut">−</button></div>
+    <div class="compass">N<br><span>✦</span><br><small>S</small></div>
+    <div class="map-canvas" id="mapCanvas">
+      <div class="india-map" aria-label="Stylized map of India">
+        <svg viewBox="0 0 520 700" role="img">
+          <defs>
+            <linearGradient id="earth" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6b6b3f"/><stop offset=".35" stop-color="#b77a45"/><stop offset=".7" stop-color="#4e6b47"/><stop offset="1" stop-color="#9a603e"/></linearGradient>
+            <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".45"/></filter>
+          </defs>
+          <path class="india-shape" filter="url(#shadow)" d="M174 33 L225 12 260 29 290 20 320 50 357 63 371 95 405 111 390 142 420 163 410 194 437 215 425 252 452 277 439 310 462 338 443 367 455 405 432 431 427 466 403 487 392 525 367 545 353 585 329 608 316 648 289 677 264 650 242 616 219 587 203 551 177 531 166 494 143 473 136 436 115 416 118 380 94 356 106 324 91 296 111 270 105 238 125 215 117 185 140 163 131 133 150 108 145 76 166 59Z"/>
+          <path class="river" d="M178 106 C220 145 200 194 238 233 S273 332 244 380 S262 481 310 535"/>
+          <path class="river" d="M355 119 C330 175 352 220 329 269 S350 363 320 410"/>
+          <g class="state-lines"><path d="M174 145L235 160L281 132L325 164L353 145"/><path d="M129 238L187 218L238 233L274 208L320 240L378 216"/><path d="M111 324L171 300L221 326L272 306L326 331L389 310"/><path d="M136 436L197 405L244 431L288 410L343 436L427 405"/><path d="M166 494L219 470L270 497L319 480L392 525"/></g>
+        </svg>
+        <div id="markers"></div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="detail" id="detail">
+    <button class="close" id="close">×</button>
+    <div class="detail-image"><img id="detailImg" alt="" /></div>
+    <div class="detail-body">
+      <div class="detail-kicker" id="detailMeta"></div>
+      <h2 id="detailTitle"></h2>
+      <div class="pills" id="detailPills"></div>
+      <p id="detailText"></p>
+      <div class="highlights"><h3>Key Highlights</h3><ul id="detailHighlights"></ul></div>
+      <div class="detail-actions"><button id="galleryBtn">View Gallery →</button><button class="ghost" id="learnBtn">Learn More</button></div>
+    </div>
+  </aside>
+</section>
+
+<section class="featured" id="featured">
+  <div class="section-head"><div><div class="eyebrow">CURATED STARTING POINTS</div><h2>Featured Locations</h2></div><p>From cave murals to miniature paintings, temple sculpture to living folk traditions.</p></div>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section class="about" id="about"><div><div class="eyebrow">ABOUT THE MAP</div><h2>India’s art history is a story of place.</h2></div><div class="about-copy"><p>Art in India developed through many overlapping cultural landscapes. This map brings together major archaeological sites, regional painting traditions, craft centres and modern art movements to show how artistic ideas travelled across the subcontinent.</p><p>Use the filters to compare periods, art forms and regions — or simply click a marker and wander.</p><a class="timeline-link" href="https://prabhavpandit-ctrl.github.io/indian-art-timeline/" target="_blank" rel="noreferrer">Explore the full journey through time →</a></div></section>
+</main>
+<footer><span>INDIAN ART MAP</span><span>Made as a companion to Indian Art Timeline</span><span>© 2026</span></footer>
+<script src="script.js"></script>
+</body>
+</html>
